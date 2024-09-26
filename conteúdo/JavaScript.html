@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propriedades e Funções do JavaScript</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif; /* Define a fonte principal como Arial, com alternativa sans-serif */
+    font-size: 18px; /* Define o tamanho base da fonte para 18px, facilitando a leitura */
+    line-height: 1.8; /* Define o espaçamento entre linhas para melhorar a legibilidade */
+    color: #f5f4f4; /* Define a cor do texto principal  */
+    margin: 0; /* Remove as margens padrões da página */
+    padding: 0; /* Remove os espaçamentos internos padrões */
+    max-width: 800px; /* Define a largura máxima do contêiner para 800px */
+    margin: 40px auto; /* Centraliza o contêiner com 40px de espaçamento em cima e embaixo */
+    padding: 40px; /* Adiciona espaçamento interno de 40px */
+    background-color: #2e2b2b; /* Define a cor de fundo */
+    box-shadow: 0 4px 20px rgba(12, 11, 11, 0.1); /* Adiciona uma sombra suave ao redor do contêiner */
+    border-radius: 10px; /* Bordas arredondadas para suavizar os cantos */
+  }
+    </style>
+  </head>
+  <body>
+    <h1> Guia de Propriedades e Funções do JavaScript</h1>
+
+    <h2>1. Tipos de Dados</h2>
+    <ul>
+      <li>
+        <strong>Number</strong>
+        <ul>
+          <li>
+            <code>Number.isNaN()</code>: Verifica se o valor é
+            <code>NaN</code> (Not-a-Number).
+          </li>
+          <li>
+            <code>Number.isInteger()</code>: Verifica se o valor é um número
+            inteiro.
+          </li>
+          <li>
+            <code>Number.parseFloat()</code>: Converte uma string em um número
+            de ponto flutuante.
+          </li>
+          <li>
+            <code>Number.parseInt()</code>: Converte uma string em um número
+            inteiro.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>String</strong>
+        <ul>
+          <li><code>string.length</code>: Retorna o comprimento da string.</li>
+          <li>
+            <code>string.charAt(index)</code>: Retorna o caractere na posição
+            especificada.
+          </li>
+          <li>
+            <code>string.includes(substring)</code>: Verifica se a string contém
+            a substring especificada.
+          </li>
+          <li>
+            <code>string.startsWith(substring)</code>: Verifica se a string
+            começa com a substring especificada.
+          </li>
+          <li>
+            <code>string.endsWith(substring)</code>: Verifica se a string
+            termina com a substring especificada.
+          </li>
+          <li>
+            <code>string.indexOf(substring)</code>: Retorna o índice da primeira
+            ocorrência da substring ou -1 se não encontrado.
+          </li>
+          <li>
+            <code>string.lastIndexOf(substring)</code>: Retorna o índice da
+            última ocorrência da substring ou -1 se não encontrado.
+          </li>
+          <li>
+            <code>string.slice(start, end)</code>: Retorna uma parte da string
+            entre os índices especificados.
+          </li>
+          <li>
+            <code>string.split(delimiter)</code>: Divide a string em um array de
+            substrings com base no delimitador.
+          </li>
+          <li>
+            <code>string.trim()</code>: Remove espaços em branco do início e do
+            fim da string.
+          </li>
+          <li>
+            <code>string.toLowerCase()</code>: Converte todos os caracteres da
+            string para letras minúsculas.
+          </li>
+          <li>
+            <code>string.toUpperCase()</code>: Converte todos os caracteres da
+            string para letras maiúsculas.
+          </li>
+          <li>
+            <code>string.repeat(count)</code>: Retorna uma nova string repetindo
+            a string original um número especificado de vezes.
+          </li>
+          <li>
+            <code>string.padStart(targetLength, padString)</code>: Preenche a
+            string com outra string até atingir o comprimento desejado a partir
+            do início.
+          </li>
+          <li>
+            <code>string.padEnd(targetLength, padString)</code>: Preenche a
+            string com outra string até atingir o comprimento desejado a partir
+            do final.
+          </li>
+          <li>
+            <code>string.localeCompare(compareString)</code>: Compara duas
+            strings em ordem local.
+          </li>
+          <li>
+            <code>string.replace(searchValue, newValue)</code>: Substitui parte
+            da string por outra substring.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Boolean</strong>: Representa um valor verdadeiro
+        (<code>true</code>) ou falso (<code>false</code>).
+      </li>
+      <li>
+        <strong>Object</strong>: Estrutura de dados que armazena pares
+        chave-valor.
+      </li>
+      <li>
+        <strong>Array</strong>: Tipo de objeto usado para armazenar listas de
+        valores.
+      </li>
+      <li>
+        <strong>Function</strong>: Um objeto que pode ser chamado (invocado).
+      </li>
+      <li>
+        <strong>Undefined</strong>: Indica que uma variável não possui valor
+        atribuído.
+      </li>
+      <li>
+        <strong>Null</strong>: Representa a ausência intencional de qualquer
+        valor.
+      </li>
+      <li>
+        <strong>Symbol</strong>: Representa um identificador único e imutável.
+      </li>
+      <li>
+        <strong>BigInt</strong>: Representa números inteiros muito grandes.
+      </li>
+    </ul>
+
+    <h2>2. Objetos Globais</h2>
+    <ul>
+      <li>
+        <strong>Math</strong>: Objeto que contém propriedades e métodos para
+        constantes e funções matemáticas.
+        <ul>
+          <li>
+            <code>Math.random()</code>: Retorna um número pseudoaleatório entre
+            0 e 1.
+          </li>
+          <li>
+            <code>Math.abs(x)</code>: Retorna o valor absoluto de
+            <code>x</code>.
+          </li>
+          <li>
+            <code>Math.ceil(x)</code>: Arredonda <code>x</code> para cima.
+          </li>
+          <li>
+            <code>Math.floor(x)</code>: Arredonda <code>x</code> para baixo.
+          </li>
+          <li>
+            <code>Math.round(x)</code>: Arredonda <code>x</code> para o inteiro
+            mais próximo.
+          </li>
+          <li>
+            <code>Math.sqrt(x)</code>: Retorna a raiz quadrada de
+            <code>x</code>.
+          </li>
+          <li>
+            <code>Math.pow(base, exponent)</code>: Retorna
+            <code>base</code> elevado à potência de <code>exponent</code>.
+          </li>
+          <li>
+            <code>Math.log(x)</code>: Retorna o logaritmo natural de
+            <code>x</code>.
+          </li>
+          <li>
+            <code>Math.log10(x)</code>: Retorna o logaritmo base 10 de
+            <code>x</code>.
+          </li>
+          <li>
+            <code>Math.exp(x)</code>: Retorna o valor de <code>e</code> elevado
+            à potência de <code>x</code>.
+          </li>
+          <li>
+            <code>Math.hypot(...values)</code>: Retorna a raiz quadrada da soma
+            dos quadrados de seus argumentos.
+          </li>
+        </ul>
+      </li>
+      <li><strong>Infinity</strong>: Representa um valor infinito.</li>
+      <li>
+        <strong>NaN</strong>: Representa um valor que não é um número
+        (Not-a-Number).
+      </li>
+      <li>
+        <strong>undefined</strong>: Tipo que indica que uma variável não possui
+        valor.
+      </li>
+    </ul>
+
+    <h2>3. Manipulação de Arrays</h2>
+    <ul>
+      <li>
+        <code>Array.isArray(value)</code>: Verifica se <code>value</code> é um
+        array.
+      </li>
+      <li>
+        <code>array.push(element)</code>: Adiciona um ou mais elementos ao final
+        do array e retorna o novo comprimento do array.
+      </li>
+      <li>
+        <code>array.pop()</code>: Remove e retorna o último elemento do array.
+      </li>
+      <li>
+        <code>array.shift()</code>: Remove e retorna o primeiro elemento do
+        array.
+      </li>
+      <li>
+        <code>array.unshift(element)</code>: Adiciona um ou mais elementos ao
+        início do array.
+      </li>
+      <li><code>array.concat(...arrays)</code>: Une dois ou mais arrays.</li>
+      <li>
+        <code>array.slice(start, end)</code>: Retorna uma cópia de uma parte do
+        array entre os índices especificados.
+      </li>
+      <li>
+        <code>array.splice(start, deleteCount, ...items)</code>: Altera o
+        conteúdo de um array, adicionando ou removendo elementos.
+      </li>
+      <li>
+        <code>array.fill(value, start, end)</code>: Preenche todos os elementos
+        do array com um valor estático.
+      </li>
+      <li>
+        <code>array.reverse()</code>: Inverte a ordem dos elementos do array.
+      </li>
+      <li>
+        <code>array.sort(compareFunction)</code>: Classifica os elementos do
+        array.
+      </li>
+      <li>
+        <code>array.map(callback)</code>: Cria um novo array com os resultados
+        da chamada de <code>callback</code> em cada elemento do array.
+      </li>
+      <li>
+        <code>array.filter(callback)</code>: Cria um novo array com todos os
+        elementos que passam no teste implementado pela função fornecida.
+      </li>
+      <li>
+        <code>array.reduce(callback, initialValue)</code>: Aplica uma função a
+        um acumulador e a cada elemento do array para reduzi-lo a um único
+        valor.
+      </li>
+      <li>
+        <code>array.find(callback)</code>: Retorna o primeiro elemento que
+        satisfaz a função de teste.
+      </li>
+      <li>
+        <code>array.every(callback)</code>: Verifica se todos os elementos do
+        array passam no teste implementado pela função fornecida.
+      </li>
+      <li>
+        <code>array.some(callback)</code>: Verifica se pelo menos um dos
+        elementos do array passa no teste implementado pela função fornecida.
+      </li>
+      <li>
+        <code>array.includes(value)</code>: Verifica se um array contém um
+        determinado valor.
+      </li>
+      <li>
+        <code>array.indexOf(value)</code>: Retorna o índice da primeira
+        ocorrência de um elemento no array.
+      </li>
+      <li>
+        <code>array.findIndex(callback)</code>: Retorna o índice do primeiro
+        elemento que satisfaz a função de teste.
+      </li>
+      <li>
+        <code>array.join(separator)</code>: Junta todos os elementos de um array
+        em uma string, usando o separador especificado.
+      </li>
+      <li>
+        <code>array.keys()</code>: Retorna um novo objeto Array Iterator com as
+        chaves de cada índice do array.
+      </li>
+      <li>
+        <code>array.values()</code>: Retorna um novo objeto Array Iterator com
+        os valores de cada índice do array.
+      </li>
+      <li>
+        <code>array.entries()</code>: Retorna um novo objeto Array Iterator com
+        os pares chave/valor de cada índice do array.
+      </li>
+    </ul>
+
+    <h2>4. Manipulação de Objetos</h2>
+    <ul>
+      <li>
+        <code>Object.keys(obj)</code>: Retorna um array com os nomes das
+        propriedades enumeráveis de um objeto.
+      </li>
+      <li>
+        <code>Object.values(obj)</code>: Retorna um array com os valores das
+        propriedades enumeráveis de um objeto.
+      </li>
+      <li>
+        <code>Object.entries(obj)</code>: Retorna um array de pares [chave,
+        valor] de um objeto.
+      </li>
+      <li>
+        <code>Object.assign(target, ...sources)</code>: Copia valores de todas
+        as propriedades de um ou mais objetos de origem para um objeto de
+        destino.
+      </li>
+      <li>
+        <code>Object.create(proto)</code>: Cria um novo objeto, usando um objeto
+        existente como protótipo.
+      </li>
+      <li>
+        <code>Object.freeze(obj)</code>: Congela um objeto, impedindo
+        modificações.
+      </li>
+      <li>
+        <code>Object.seal(obj)</code>: Impede novas adições e elimina a exclusão
+        de propriedades.
+      </li>
+      <li>
+        <code>Object.defineProperty(obj, prop, descriptor)</code>: Define uma
+        nova propriedade em um objeto ou modifica uma existente.
+      </li>
+      <li>
+        <code>Object.defineProperties(obj, props)</code>: Define várias
+        propriedades em um objeto.
+      </li>
+      <li>
+        <code>Object.getOwnPropertyNames(obj)</code>: Retorna um array com os
+        nomes das propriedades de um objeto, incluindo não enumeráveis.
+      </li>
+      <li>
+        <code>Object.getOwnPropertyDescriptor(obj, prop)</code>: Retorna um
+        descritor de propriedade de um objeto.
+      </li>
+      <li>
+        <code>Object.hasOwnProperty(prop)</code>: Verifica se um objeto possui
+        uma propriedade específica como sua própria propriedade (não herdada).
+      </li>
+    </ul>
+
+    <h2>5. Manipulação de Funções</h2>
+    <ul>
+      <li><code>function() {}</code>: Define uma função.</li>
+      <li><code>return</code>: Retorna um valor de uma função.</li>
+      <li>
+        <code>Function.prototype.call(thisArg, ...args)</code>: Chama uma função
+        com um dado valor <code>this</code> e argumentos fornecidos
+        individualmente.
+      </li>
+      <li>
+        <code>Function.prototype.apply(thisArg, argsArray)</code>: Chama uma
+        função com um dado valor <code>this</code> e um array de argumentos.
+      </li>
+      <li>
+        <code>Function.prototype.bind(thisArg, ...args)</code>: Cria uma nova
+        função que, quando chamada, tem seu <code>this</code> definido para um
+        valor específico.
+      </li>
+      <li>
+        <code>Function.prototype.toString()</code>: Retorna uma string
+        representando o código-fonte da função.
+      </li>
+    </ul>
+
+    <h2>6. Manipulação de Erros</h2>
+    <ul>
+      <li><code>try...catch</code>: Estrutura para tratamento de exceções.</li>
+      <li><code>throw</code>: Lança uma exceção.</li>
+      <li>
+        <strong>TypeError</strong>: Lançado quando uma variável não é do tipo
+        esperado.
+      </li>
+      <li>
+        <strong>ReferenceError</strong>: Lançado quando uma referência não pode
+        ser encontrada.
+      </li>
+      <li>
+        <strong>SyntaxError</strong>: Lançado quando há um erro de sintaxe no
+        código.
+      </li>
+    </ul>
+
+    <h2>7. Manipulação de Tempo</h2>
+    <ul>
+      <li>
+        <code>setTimeout(callback, delay)</code>: Executa uma função após um
+        determinado tempo.
+      </li>
+      <li>
+        <code>setInterval(callback, delay)</code>: Executa uma função
+        repetidamente, com um intervalo de tempo especificado.
+      </li>
+      <li>
+        <code>clearTimeout(timeoutId)</code>: Cancela um timer definido por
+        <code>setTimeout()</code>.
+      </li>
+      <li>
+        <code>clearInterval(intervalId)</code>: Cancela um timer definido por
+        <code>setInterval()</code>.
+      </li>
+    </ul>
+
+    <h2>8. Manipulação de Dados Estruturados</h2>
+    <ul>
+      <li>
+        <strong>Map</strong>
+        <ul>
+          <li><code>new Map()</code>: Cria um novo mapa.</li>
+          <li>
+            <code>map.set(key, value)</code>: Adiciona ou atualiza um par
+            chave-valor.
+          </li>
+          <li>
+            <code>map.get(key)</code>: Retorna o valor associado a uma chave.
+          </li>
+          <li><code>map.delete(key)</code>: Remove um par chave-valor.</li>
+          <li>
+            <code>map.has(key)</code>: Verifica se uma chave existe no mapa.
+          </li>
+          <li>
+            <code>map.forEach(callback)</code>: Executa uma função para cada par
+            chave-valor no mapa.
+          </li>
+          <li>
+            <code>map.size</code>: Retorna o número de pares chave-valor no
+            mapa.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>WeakMap</strong>
+        <ul>
+          <li><code>new WeakMap()</code>: Cria um novo WeakMap.</li>
+          <li>
+            <code>weakMap.set(key, value)</code>: Adiciona ou atualiza um par
+            chave-valor.
+          </li>
+          <li>
+            <code>weakMap.get(key)</code>: Retorna o valor associado a uma
+            chave.
+          </li>
+          <li><code>weakMap.delete(key)</code>: Remove um par chave-valor.</li>
+          <li>
+            <code>weakMap.has(key)</code>: Verifica se uma chave existe no
+            WeakMap.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Set</strong>
+        <ul>
+          <li><code>new Set()</code>: Cria um novo conjunto.</li>
+          <li><code>set.add(value)</code>: Adiciona um valor ao conjunto.</li>
+          <li><code>set.delete(value)</code>: Remove um valor do conjunto.</li>
+          <li>
+            <code>set.has(value)</code>: Verifica se um valor está presente no
+            conjunto.
+          </li>
+          <li>
+            <code>set.forEach(callback)</code>: Executa uma função para cada
+            valor do conjunto.
+          </li>
+          <li>
+            <code>set.size</code>: Retorna o número de valores únicos no
+            conjunto.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>WeakSet</strong>
+        <ul>
+          <li><code>new WeakSet()</code>: Cria um novo WeakSet.</li>
+          <li>
+            <code>weakSet.add(value)</code>: Adiciona um valor ao WeakSet.
+          </li>
+          <li>
+            <code>weakSet.delete(value)</code>: Remove um valor do WeakSet.
+          </li>
+          <li>
+            <code>weakSet.has(value)</code>: Verifica se um valor está presente
+            no WeakSet.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>9. Iteradores e Geradores</h2>
+    <ul>
+      <li>
+        <strong>Generator Functions</strong>
+        <ul>
+          <li>
+            <code>function*</code>: Declara uma função geradora que pode ser
+            pausada e retomada.
+          </li>
+          <li>
+            <code>yield</code>: Pausa a execução da função geradora e retorna um
+            valor.
+          </li>
+          <li>
+            <code>Symbol.iterator</code>: Propriedade que retorna o método do
+            iterador de um objeto.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>10. Manipulação de Promessas</h2>
+    <ul>
+      <li>
+        <strong>Promise</strong>
+        <ul>
+          <li>
+            <code>Promise.all(iterable)</code>: Retorna uma promessa que resolve
+            quando todas as promessas fornecidas são resolvidas.
+          </li>
+          <li>
+            <code>Promise.race(iterable)</code>: Retorna uma promessa que
+            resolve ou rejeita assim que uma das promessas fornecidas resolve ou
+            rejeita.
+          </li>
+          <li>
+            <code>Promise.allSettled(iterable)</code>: Retorna uma promessa que
+            resolve após todas as promessas fornecidas terem sido concluídas,
+            independentemente de serem resolvidas ou rejeitadas.
+          </li>
+          <li>
+            <code>Promise.any(iterable)</code>: Retorna uma promessa que resolve
+            assim que uma das promessas fornecidas é resolvida, ou rejeita se
+            todas forem rejeitadas.
+          </li>
+          <li>
+            <code>Promise.resolve(value)</code>: Retorna uma promessa que é
+            resolvida com um valor.
+          </li>
+          <li>
+            <code>Promise.reject(reason)</code>: Retorna uma promessa que é
+            rejeitada com um motivo.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>11. APIs de Web</h2>
+    <ul>
+      <li>
+        <strong>Fetch API</strong>
+        <ul>
+          <li>
+            <code>fetch(url)</code>: Faz uma requisição de rede e retorna uma
+            promessa.
+          </li>
+          <li>
+            <code>Response.json()</code>: Retorna uma promessa que resolve com o
+            corpo da resposta como JSON.
+          </li>
+          <li>
+            <code>Response.ok</code>: Indica se a resposta foi bem-sucedida
+            (código HTTP no intervalo 200-299).
+          </li>
+          <li>
+            <code>Response.status</code>: Retorna o código de status HTTP da
+            resposta.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>LocalStorage</strong>
+        <ul>
+          <li>
+            <code>localStorage.setItem(key, value)</code>: Armazena um item na
+            local storage.
+          </li>
+          <li>
+            <code>localStorage.getItem(key)</code>: Recupera um item da local
+            storage.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>SessionStorage</strong>
+        <ul>
+          <li>
+            <code>sessionStorage.setItem(key, value)</code>: Armazena um item na
+            session storage.
+          </li>
+          <li>
+            <code>sessionStorage.getItem(key)</code>: Recupera um item da
+            session storage.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>12. Manipulação de Eventos</h2>
+    <ul>
+      <li>
+        <strong>Eventos</strong>
+        <ul>
+          <li>
+            <code>addEventListener(type, listener)</code>: Adiciona um ouvinte
+            de evento a um elemento.
+          </li>
+          <li>
+            <code>removeEventListener(type, listener)</code>: Remove um ouvinte
+            de evento de um elemento.
+          </li>
+          <li>
+            <code>event.preventDefault()</code>: Impede o comportamento padrão
+            de um evento.
+          </li>
+          <li>
+            <code>event.stopPropagation()</code>: Impede que o evento se
+            propague para outros elementos.
+          </li>
+          <li>
+            <code>event.stopImmediatePropagation()</code>: Impede que outros
+            manipuladores do mesmo evento sejam chamados.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>CustomEvent</strong>: Permite criar eventos personalizados.
+        <ul>
+          <li>
+            <code>new CustomEvent(type, options)</code>: Cria um novo evento
+            personalizado.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>13. Manipulação do DOM</h2>
+    <ul>
+      <li>
+        <code>document.getElementById(id)</code>: Retorna o elemento com o ID
+        especificado.
+      </li>
+      <li>
+        <code>document.querySelector(selector)</code>: Retorna o primeiro
+        elemento que corresponde ao seletor CSS fornecido.
+      </li>
+      <li>
+        <code>document.createElement(tagName)</code>: Cria um novo elemento
+        HTML.
+      </li>
+      <li>
+        <code>document.getElementsByClassName(className)</code>: Retorna uma
+        coleção de elementos que possuem a classe especificada.
+      </li>
+      <li>
+        <code>document.getElementsByTagName(tagName)</code>: Retorna uma coleção
+        de elementos que correspondem ao nome da tag especificada.
+      </li>
+      <li>
+        <code>element.classList</code>: Propriedade que retorna a lista de
+        classes de um elemento.
+      </li>
+      <li>
+        <code>element.setAttribute(name, value)</code>: Define um atributo em um
+        elemento.
+      </li>
+      <li>
+        <code>element.appendChild(child)</code>: Adiciona um novo filho a um
+        elemento.
+      </li>
+      <li><code>element.remove()</code>: Remove um elemento do DOM.</li>
+    </ul>
+
+    <h2>14. Modules</h2>
+    <ul>
+      <li>
+        <code>import { name } from './module.js'</code>: Importa um membro
+        nomeado de um módulo.
+      </li>
+      <li>
+        <code>export const name = value;</code>: Exporta uma variável de um
+        módulo.
+      </li>
+    </ul>
+
+    <h2>15. Templates Literais</h2>
+    <ul>
+      <li>
+        <code>${expression}</code>: Permite interpolação de expressões dentro de
+        strings.
+      </li>
+    </ul>
+
+    <h2>16. Symbol</h2>
+    <ul>
+      <li><code>Symbol.for(key)</code>: Cria ou recupera um símbolo global.</li>
+    </ul>
+
+    <h2>17. Desestruturação</h2>
+    <ul>
+      <li>
+        Desestruturação de Arrays: Permite desempacotar valores de arrays em
+        variáveis distintas.
+      </li>
+      <li>
+        Desestruturação de Objetos: Permite extrair valores de objetos em
+        variáveis distintas.
+      </li>
+      <li>
+        Desestruturação aninhada: Permite extrair valores de arrays ou objetos
+        aninhados.
+      </li>
+    </ul>
+
+    <h2>18. Proxy e Reflect</h2>
+    <ul>
+      <li>
+        <strong>Proxy</strong>
+        <ul>
+          <li>
+            <code>new Proxy(target, handler)</code>: Permite criar um objeto que
+            pode interceptar operações em outro objeto.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Reflect</strong>
+        <ul>
+          <li>
+            <code>Reflect.get(target, propertyKey)</code>: Obtém a propriedade
+            de um objeto.
+          </li>
+          <li>
+            <code>Reflect.set(target, propertyKey, value)</code>: Define a
+            propriedade de um objeto.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>19. API de Geolocalização</h2>
+    <ul>
+      <li>
+        <code
+          >navigator.geolocation.getCurrentPosition(success, error,
+          options)</code
+        >: Obtém a posição atual do usuário.
+      </li>
+    </ul>
+
+    <h2>20. Eventos de Teclado e Mouse</h2>
+    <ul>
+      <li>
+        <strong>Eventos de Teclado</strong>
+        <ul>
+          <li>
+            <code>keydown</code>: Disparado quando uma tecla é pressionada.
+          </li>
+          <li><code>keyup</code>: Disparado quando uma tecla é solta.</li>
+          <li>
+            <code>keypress</code>: Disparado quando uma tecla é pressionada
+            (deprecado em algumas situações).
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Eventos de Mouse</strong>
+        <ul>
+          <li><code>click</code>: Disparado quando um elemento é clicado.</li>
+          <li>
+            <code>dblclick</code>: Disparado quando um elemento é clicado duas
+            vezes.
+          </li>
+          <li>
+            <code>mouseover</code>: Disparado quando o ponteiro do mouse entra
+            em um elemento.
+          </li>
+          <li>
+            <code>mouseout</code>: Disparado quando o ponteiro do mouse sai de
+            um elemento.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

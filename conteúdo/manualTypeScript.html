@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual de TypeScript</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
+    />
+    <style>
+      body {
+    /* Define a fonte padrão do corpo do documento e um espaçamento de 20px ao redor do conteúdo */
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #1e1e1e; /* Cor de fundo da página escura */
+}
+
+.code-container {
+    /* Estiliza o contêiner de código com um fundo escuro semelhante ao tema do VSCode */
+    background-color: #1e1e1e; /* Cor de fundo escura */
+    color: #dcdcdc; /* Cor do texto clara */
+    padding: 15px; /* Espaçamento interno (padding) ao redor do conteúdo */
+    border-radius: 5px; /* Arredonda as bordas do contêiner */
+    overflow-x: auto; /* Permite rolagem horizontal caso o código seja maior que o contêiner */
+}
+
+pre {
+    /* Remove a margem padrão dos elementos <pre> */
+    margin: 0;
+}
+
+h1, h2 {
+    /* Define a cor do texto dos títulos <h1> e <h2> para um tom claro que combina com o fundo escuro */
+    color: #dcdcdc;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Manual de TypeScript</h1>
+
+    <div class="code-container">
+      <pre><code class="language-javascript">
+      
+        // Variáveis
+        let nome: string = 'João' // variável (evitar usar var, prefira let ou const)
+        let idade: number = 30 // variável
+        const cidade: string = 'São Paulo' // constante
+        
+        // Escopo de variáveis
+        function scopeTest(): void {
+          var funcVar: string = 'function scope' // Escopo da função
+          let blockVar: string = 'block scope' // Escopo do bloco
+          const blockConst: string = 'block scope constant' // Escopo do bloco
+          if (true) {
+            let innerBlockVar: string = 'inner block scope'
+            console.log(innerBlockVar) // "inner block scope"
+          }
+          // console.log(innerBlockVar); // ReferenceError: innerBlockVar is not defined
+        }
+        scopeTest()
+        
+        // Tipos de dados
+        let numero: number = 42 // number
+        let texto: string = 'Olá, mundo!' // string
+        let booleano: boolean = true // boolean
+        let nulo: null = null // null
+        let indefinido: undefined // undefined
+        let simbolo: symbol = Symbol('simbolo') // symbol
+        let objeto: { chave: string } = { chave: 'valor' } // objeto
+        let arrayLista: number[] = [1, 2, 3] // array
+        
+        // 1. STRINGS
+        const str1: string = 'Hello' // String literal
+        const str2: string = 'World' // Outra string literal
+        const str3: string = `Template literal with ${str1}` // Template literal com interpolação
+        const str4: string = 'Hello\nWorld' // String com nova linha
+        const includesHello: boolean = str1.includes('Hello') // true
+        const startsWithH: boolean = str1.startsWith('H') // true
+        const endsWithO: boolean = str1.endsWith('o') // true
+        const splitted: string[] = str1.split('e') // ["H", "llo"]
+        const charAtPosition: string = str1.charAt(1) // 'e'
+        const charCodeAtPosition: number = str1.charCodeAt(1) // 101
+        
+        // Métodos comuns de string
+        const length: number = str1.length // Tamanho da string
+        const upper: string = str1.toUpperCase() // "HELLO"
+        const lower: string = str1.toLowerCase() // "hello"
+        const indexOfO: number = str1.indexOf('o') // 4
+        const subStr: string = str1.substring(1, 3) // "el"
+        const replaced: string = str1.replace('Hello', 'Hi') // "Hi"
+        
+        // Template literals com multi-linhas
+        const multiLineString: string = `
+          This is a
+          multi-line
+          string
+        `
+        
+        // 2. NÚMEROS (Numbers)
+        const num1: number = 42 // Número inteiro
+        const num2: number = 3.14 // Número decimal
+        const rounded: number = Math.round(4.6) // 5
+        const floored: number = Math.floor(4.6) // 4
+        const ceiled: number = Math.ceil(4.1) // 5
+        const power: number = Math.pow(2, 3) // 8
+        const squareRoot: number = Math.sqrt(16) // 4
+        const randomNum: number = Math.random() // número aleatório entre 0 e 1
+        
+        // Métodos comuns de número
+        const parsedInt: number = parseInt('42', 10) // 42
+        const parsedFloat: number = parseFloat('3.14') // 3.14
+        const isNanValue: boolean = isNaN(Number('Not a Number')) // true
+        
+        // Operações matemáticas
+        const sum: number = num1 + num2 // 45.14
+        const product: number = num1 * num2 // 131.88
+        
+        // 3. BOOLEANOS (Booleans)
+        const isTrue: boolean = true // Valor booleano verdadeiro
+        const isFalse: boolean = false // Valor booleano falso
+        const boolFromString: boolean = Boolean('false') // true, qualquer string não vazia é true
+        const boolFromNumber: boolean = Boolean(0) // false, 0 é false
+        const boolFromNumberTwo: boolean = Boolean(1) // true, qualquer número não zero é true
+        
+        // Operadores
+        let soma: number = 5 + 3 // adição
+        let subtracao: number = 5 - 3 // subtração
+        let multiplicacao: number = 5 * 3 // multiplicação
+        let divisao: number = 5 / 3 // divisão
+        let modulo: number = 5 % 3 // módulo
+        let incremento: number = ++soma // incremento
+        let decremento: number = --subtracao // decremento
+        
+        // Operadores de comparação
+        /*
+        ==    Igualdade
+        ===   Igualdade estrita (valor e tipo)
+        !=    Desigualdade
+        !==   Desigualdade estrita (valor e tipo)
+        >     Maior que
+        <     Menor que
+        >=    Maior ou igual a
+        <=    Menor ou igual a
+        */
+        
+        const isEqual: boolean = 5 == '5' // true (comparação de valor)
+        const isStrictEqual: boolean = 5 === '5' // false (comparação de valor e tipo)
+        const isNotEqual: boolean = 5 != '5' // false
+        const isStrictNotEqual: boolean = 5 !== '5' // true
+        const greaterThan: boolean = 5 > 3 // true
+        const lessThan: boolean = 3 < 5 // true
+        
+        // Operadores de Atribuição
+        let x: number = 10
+        x += 5 // x = x + 5;
+        x -= 3 // x = x - 3;
+        x *= 2 // x = x * 2;
+        x /= 2 // x = x / 2;
+        x %= 4 // x = x % 4;
+        
+        /* Operadores lógicos 
+        && : E lógico (AND)
+        || : Ou lógico (OR)
+        ! : Não lógico (NOT)  
+        */
+        
+        const andOperator: boolean = true && false // false
+        const orOperator: boolean = true || false // true
+        const notOperator: boolean = !true // false
+        
+        // Operadores bitwise
+        const bitwiseAnd: number = 5 & 1 // 1 (0101 & 0001)
+        const bitwiseOr: number = 5 | 1 // 5 (0101 | 0001)
+        const bitwiseXor: number = 5 ^ 1 // 4 (0101 ^ 0001)
+        const bitwiseNot: number = ~5 // -6 (~0101 = 1010, complemento de dois)
+        
+        // Operadores de incremento e decremento
+        let counter: number = 5
+        counter++ // 6
+        counter-- // 5
+        
+        // Outros Operadores
+        /*
+        ? :    / Operador ternário (condicional)
+        ,      / Operador de vírgula (executa múltiplas expressões)
+        delete / Remove uma propriedade de um objeto
+        in     /  Verifica se uma propriedade está presente em um objeto
+        void  / Avalia uma expressão sem retornar valor
+        new   / Cria uma nova instância de um objeto
+        this  / Referencia o objeto atual
+        ...   / Operador de spread (expansão) e rest (restante)
+        ()    / Agrupamento de expressões e chamada de funções
+        {}    / Definição de blocos de código e objetos
+        []    / Definição de arrays e acesso a elementos por índice
+        ;     / Terminação de instruções
+        :     / Usado em declarações de objetos e no operador ternário
+        =>    / Função arrow (função de seta)
+        */
+        
+        // Estruturas de controle
+        if (idade > 18) {
+          console.log('Maior de idade') // Condicional if-else
+        } else {
+          console.log('Menor de idade')
+        }
+        
+        // 4. CONDICIONAIS (Conditionals)
+        if (booleano) {
+          console.log('Verdadeiro') // Condicional if
+        } else {
+          console.log('Falso') // Condicional else
+        }
+        
+        let condicao: string = booleano ? 'Sim' : 'Não' // Operador ternário
+        
+        switch (numero) {
+          case 1:
+            console.log('Número é 1') // Condicional switch-case
+            break
+          case 2:
+            console.log('Número é 2')
+            break
+          default:
+            console.log('Outro número')
+        }
+        
+        // Loops
+        for (let i: number = 0; i < 5; i++) {
+          console.log(i) // Loop for com incremento
+        }
+        
+        let contador: number = 0
+        while (contador < 5) {
+          console.log(contador) // Loop while
+          contador++
+        }
+        
+        do {
+          console.log(contador) // Loop do-while
+          contador++
+        } while (contador < 5)
+        
+        // Funções (Functions)
+        function add(a: number, b: number): number {
+          return a + b // Função de soma
+        }
+        
+        const multiply = (a: number, b: number): number => {
+          return a * b // Função arrow de multiplicação
+        }
+        
+        const greet = (): string => 'Hello World' // Função arrow sem parâmetros
+        
+        // Funções anônimas
+        const anonFunc = function (a: number, b: number): number {
+          return a + b // Função anônima de soma
+        }
+        
+        // Funções imediatamente invocadas (IIFE)
+        ;(function (): void {
+          console.log('This is an IIFE') // Função auto-invocada
+        })()
+        
+        // Funções com parâmetros padrão
+        function greetUser(name: string = 'Guest'): string {
+          return `Hello, ${name}` // Função com parâmetro padrão
+        }
+        
+        // Funções rest e spread
+        function sumAll(...numbers: number[]): number {
+          return numbers.reduce((acc, num) => acc + num, 0) // Função que soma todos os números passados como argumento
+        }
+        const totalSum: number = sumAll(1, 2, 3, 4) // 10
+        
+        const numArray: number[] = [1, 2, 3]
+        const copiedArray: number[] = [...numArray, 4, 5] // [1, 2, 3, 4, 5]
+        
+        // Funções como métodos de objeto
+        const anotherObj = {
+          number: 5,
+          multiplyBy: function (n: number): number {
+            return this.number * n // Método que multiplica pelo valor do objeto
+          },
+        }
+        console.log(anotherObj.multiplyBy(2)) // 10
+        
+        // Funções de primeira classe (podem ser atribuídas a variáveis e passadas como argumentos)
+        const saudacao = function (): void {
+          console.log('Olá') // Função atribuída a uma variável
+        }
+        
+        saudacao() // Invocação da função
+        
+        // 7. CONDICIONAIS (Conditionals)
+        if (true) {
+          console.log('This is true') // Condicional if
+        } else if (false) {
+          console.log('This is false') // Condicional else if
+        } else {
+          console.log('This is neither') // Condicional else
+        }
+        
+        // Switch statement
+        const fruit: string = 'apple'
+        switch (fruit) {
+          case 'banana':
+            console.log('This is a banana')
+            break
+          case 'apple':
+            console.log('This is an apple')
+            break
+          default:
+            console.log('Unknown fruit')
+        }
+        
+        // Operador ternário
+        const check: string = true ? 'Yes' : 'No' // "Yes"
+        
+        // 8. ARRAYS (Arrays)
+        const arr: number[] = [1, 2, 3, 4, 5] // Declaração de array
+        
+        // Arrays e suas operações
+        let numeros: number[] = [1, 2, 3, 4, 5]
+        numeros.push(6) // adiciona ao final
+        numeros.pop() // remove do final
+        numeros.shift() // remove do início
+        numeros.unshift(0) // adiciona ao início
+        
+        // Métodos de arrays
+        let dobrados: number[] = numeros.map((n: number) => n * 2) // Cria novo array com os valores dobrados
+        let pares: number[] = numeros.filter((n: number) => n % 2 === 0) // Cria novo array com os valores pares
+        let somaTotal: number = numeros.reduce((total: number, n: number) => total + n, 0) // Soma todos os valores do array
+        
+        // Métodos comuns de arrays
+        const arrLength: number = arr.length // 5
+        const firstElement: number = arr[0] // 1
+        arr.push(6) // Adiciona 6 no final do array
+        const lastElement: number | undefined = arr.pop() // Remove e retorna o último elemento (6)
+        const slicedArr: number[] = arr.slice(1, 3) // [2, 3]
+        
+        // Métodos de iteração de arrays
+        const array: number[] = [1, 2, 3, 4, 5]
+        array.forEach((num: number) => console.log(num)) // Itera sobre o array e imprime cada número
+        const mappedArray: number[] = array.map((num: number) => num * 2) // [2, 4, 6, 8, 10]
+        const filteredArray: number[] = array.filter((num: number) => num > 2) // [3, 4, 5]
+        const reducedValue: number = array.reduce((acc: number, num: number) => acc + num, 0) // 15
+        
+        // Manipulação de Arrays
+        array.fill(0, 1, 3) // Preenche os elementos de um array com um valor estático
+        array.reverse() // Inverte a ordem dos elementos do array
+        array.sort((a: number, b: number) => a - b) // Classifica os elementos do array com base em uma função de comparação
+        const found: number | undefined = array.find((element: number) => element > 10) // Retorna o primeiro elemento que satisfaz a condição
+        const everyGreaterThanTwo: boolean = array.every((element: number) => element > 2) // Verifica se todos os elementos passam na condição
+        const someGreaterThanTwo: boolean = array.some((element: number) => element > 2) // Verifica se pelo menos um elemento passa na condição
+        const flatArray: number[] = [
+          [1, 2],
+          [3, 4],
+        ].flat() // [1, 2, 3, 4]
+        const flatMapArray: number[] = [1, 2, 3].flatMap((num: number) => [num, num * 2]) // [1, 2, 2, 4, 3, 6]
+        
+        // Declaração de funções
+        function saudacaoFunc(nome: string): string {
+          return `Olá, ${nome}!` // Função de saudação
+        }
+        
+        // Funções anônimas
+        let somaAnonima = function (a: number, b: number): number {
+          return a + b // Função anônima de soma
+        }
+        
+        // Arrow functions
+        let somaArrow = (a: number, b: number): number => a + b // Função arrow de soma
+        
+        // Parâmetros e argumentos
+        function multiplica(a: number, b: number = 2): number {
+          return a * b // Função com parâmetro padrão
+        }
+        multiplica(5) // 10
+        
+        // Funções de ordem superior (higher-order functions)
+        function aplicarOperacao(a: number, b: number, operacao: (a: number, b: number) => number): number {
+          return operacao(a, b) // Função que aplica outra função passada como argumento
+        }
+        aplicarOperacao(5, 3, somaArrow) // 8
+        
+        // 9. OBJETOS (Objects)
+        const obj: { name: string; age: number; greet: () => void } = {
+          name: 'John',
+          age: 30,
+          greet: function (): void {
+            console.log('Hello') // Método do objeto
+          },
+        }
+        
+        // Manipulação de Objetos
+        Object.freeze(obj) // Congela um objeto, impedindo modificações
+        Object.seal(obj) // Sela um objeto, impedindo adição ou remoção de propriedades
+        Object.defineProperty(obj, 'newProp', { value: 'valor', writable: true }) // Define uma nova propriedade
+        let ownPropertyNames: string[] = Object.getOwnPropertyNames(obj) // Retorna todas as propriedades (incluindo não enumeráveis)
+        let descriptor: PropertyDescriptor | undefined = Object.getOwnPropertyDescriptor(obj, 'name') // Retorna o descritor de uma propriedade
+        
+        // Manipulação avançada de objetos
+        const obj1: { a: number } = { a: 1 }
+        const obj2: { b: number } = { b: 2 }
+        const obj3: { a: number; b: number } = Object.assign({}, obj1, obj2) // { a: 1, b: 2 }
+        Object.freeze(obj1) // obj1 não pode ser modificado
+        Object.seal(obj2) // obj2 pode ser modificado, mas não pode ter propriedades adicionadas ou removidas
+        
+        // Manipulação de Tempo (Timers)
+        let timerId: number = window.setTimeout(() => {
+          console.log('Executado após 2 segundos')
+        }, 2000)
+        clearTimeout(timerId) // Cancela o timer
+        let intervalId: number = window.setInterval(() => {
+          console.log('Executado a cada 1 segundo')
+        }, 1000)
+        clearInterval(intervalId) // Cancela o intervalo
+        
+        // Acessando propriedades
+        const nameProp: string = obj.name // "John"
+        const ageProp: number = obj['age'] // 30
+        
+        // Adicionando propriedade
+        obj.email = 'john@example.com'
+        
+        // Modificando propriedades
+        obj.name = 'marcao'
+        
+        // Métodos de objeto
+        obj.greet() // "Hello"
+        
+        // Métodos de objeto
+        const keysObj: string[] = Object.keys(obj) // ["name", "age", "greet", "email"]
+        const valuesObj: any[] = Object.values(obj) // ["marcao", 30, [Function: greet], "john@example.com"]
+        const entriesObj: [string, any][] = Object.entries(obj) // [["name", "marcao"], ["age", 30], ["greet", [Function: greet]]
+        
+        // Desestruturação de objetos
+        const { name: userName, age: userAge } = obj
+        console.log(userName) // "marcao"
+        console.log(userAge) // 30
+        
+        // Spread e rest em objetos
+        const newObj: { [key: string]: any } = { ...obj, location: 'Earth' } // Adiciona a propriedade "location"
+        const { email, ...remainingProps } = newObj
+        console.log(email) // "john@example.com"
+        console.log(remainingProps) // { name: "marcao", age: 30, greet: [Function: greet], location: "Earth" }
+        
+        // Criação e manipulação de objetos
+        let pessoa: {
+          nome: string
+          idade: number
+          cidade: string
+          saudacao: () => string
+        } = {
+          nome: 'Maria',
+          idade: 25,
+          cidade: 'Rio de Janeiro',
+          saudacao: function (): string {
+            return `Olá, meu nome é ${this.nome}` // Método do objeto
+          },
+        }
+        console.log(pessoa.saudacao()) // Chamada do método
+
+
+    </code></pre>
+</div>
+
+<!-- Inclua a biblioteca Prism.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-javascript.min.js"></script>
+</body>
+</html>

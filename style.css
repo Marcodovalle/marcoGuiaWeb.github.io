@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #797676;
+}
+
+header {
+  background-color: #332f2f; /* Define a cor de fundo do cabeçalho como cinza escuro */
+  color: #fff; /* Define a cor do texto como branca */
+  padding: 3px; /* Adiciona um preenchimento de 5px ao redor do conteúdo */
+  text-align: center; /* Alinha o texto no centro do cabeçalho */
+}
+
+.container {
+  display: flex; /* Exibe o conteúdo como um layout flexível */
+  flex-wrap: wrap; /* Permite que os itens sejam distribuídos em várias linhas, se necessário */
+  justify-content: center; /* Centraliza os itens dentro do contêiner */
+  padding: 20px; /* Adiciona preenchimento */
+}
+
+.news-item {
+  background-color: #dfd5d5; /* Define a cor de fundo como branco */
+  border: 1px solid #ddd; /* Adiciona uma borda leve em */
+  margin: 10px; /* Define um espaçamento de 10px ao redor de cada item */
+  width: 350px; /* Define a largura fixa  para cada item */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil ao redor dos itens */
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  background-color: #f0f0f0;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.news-item img {
+  max-width: 100%; /* Garante que a imagem não exceda a largura do item  */
+  height: auto; /* Mantém a proporção da imagem */
+  display: block; /* Exibe a imagem como um bloco */
+}
+
+.news-content {
+  padding: 15px; /* Adiciona um preenchimento interno  ao redor do conteúdo */
+}
+
+.news-content h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.news-content p {
+  font-size: 14px; /* Define o tamanho da fonte para 14px */
+  color: #555; /* Define a cor do texto como cinza escuro */
+}
+
+.news-content a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: #007bff; /* Define a cor dos links como azul */
+  font-weight: bold; /* Define o texto dos links como negrito */
+}
+
+.news-content a:hover {
+  text-decoration: underline; /* Adiciona um sublinhado aos links ao passar o mouse */
+}
+
+/* Estilos responsivos para telas menores */
+@media (max-width: 768px) {
+  .news-item {
+    width: 100%; /* Para telas menores que 768px, os itens ocupam 100% da largura */
+  }
+}
