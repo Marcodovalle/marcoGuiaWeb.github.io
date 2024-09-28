@@ -27,10 +27,11 @@ A página principal contém seções detalhadas sobre:
 ├── index.html          # Página principal
 ├── style.css           # Estilos da página
 ├── img/                # Diretório de imagens
-│   └── manualcss.webp
-│   └── manualhtml.webp
+│   └── guiacss.webp
+│   └── guiahtml.webp
+│   └── guiajs.webp
 │   └── manualjs.webp
-│   └── manualTypeScript.webp
+|   └── manualts.webp
 ├── conteúdo/           # Diretório de guias completos
 │   └── CSS.html
 │   └── TagsHTML.html
