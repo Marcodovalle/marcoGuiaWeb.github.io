@@ -31,7 +31,7 @@ A página principal contém seções detalhadas sobre:
 │   └── guiahtml.webp
 │   └── guiajs.webp
 │   └── manualjs.webp
-|   └── manualts.webp
+│   └── manualts.webp
 ├── conteúdo/           # Diretório de guias completos
 │   └── CSS.html
 │   └── TagsHTML.html
